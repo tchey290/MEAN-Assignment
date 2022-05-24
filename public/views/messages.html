@@ -1,0 +1,29 @@
+<div class="container-fluid"> 
+    <div class="row"> 
+        <div class="panel panel-primary"> 
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th col-md-2>Contact</th>
+                        <th col-md-3>University</th>
+                        <th col-md-2>Date</th>
+                        <th col-md-2>Category</th>
+                        <th>Message</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="m in user.messages | orderBy: 'date':false">
+                        <td>{{m.contact.firstname}} {{m.contact.lastname}}</td>
+                        <td><a href="#/university/{{m.id}}">{{m.contact.university.name}}</a></td> <!--ADD LINK TO DETAILS LATER-->
+                        <td>{{m.date}}</td>
+                        <td>{{m.category}}</td>
+                        <td>{{m.content}}</td>
+                    </tr>
+                </body>
+            </table>
+                   
+        </div> 
+    </div>
+</div>

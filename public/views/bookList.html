@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>Search:
+                        <input ng-model="query">
+                    </p>
+                    <p>Sort by:
+                    <select ng-model="orderProp">
+                        <option value="title">Title</option>
+                        <option value="isbn10">ISBN</option>
+                        <option value="category">Category</option>
+                    </select>
+                    </p>
+                    <a href="#/table/"> <button type="button" class="btn btn-info">View Table </button></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    <ul class="media-list">
+                        <li ng-repeat="b in user.books | filter:query | orderBy:orderProp" class="media">
+                            <div class="media-left">
+                                <a href="#/books/{{b.isbn10}}" class="thumb">
+                                    <img ng-src="images/tinysquare/{{b.isbn10}}.jpg">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a href="#/books/{{b.isbn10}}">{{b.title}}</a></h4>
+                                <p>{{b.isbn10}}, {{b.category}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

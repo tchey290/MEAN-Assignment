@@ -1,0 +1,158 @@
+<!--OLD CODE; CHECK BELOW FOR NEW-->
+<!--<style>-->
+<!--.checkbox{-->
+<!--    background-color: #e0ebeb;-->
+<!--    border-style: groove;-->
+<!--}-->
+
+<!--</style>-->
+
+<!--<div class="container">-->
+        <!-- HEADER AND TODO COUNT -->
+<!--        <div class="jumbotron text-center">-->
+<!--            <h1>{{user.firstname}}'s Todo List <span class="label label-info">{{ todos.length }}</span></h1>-->
+<!--        </div>-->
+        
+        <!-- FORM TO CREATE TODOS -->
+<!--        <div id="todo-form" class="row">-->
+<!--            <div class="col-sm-8 col-sm-offset-2 text-center">-->
+<!--                <form class="form" ng-submit="createTodo()">-->
+<!--                    <div class="form-group">-->
+                        
+<!--                    <div class="col-md-8">-->
+                        <!-- BIND THIS VALUE TO todoForm.text IN ANGULAR -->
+<!--                        <input type="text" class="form-control input-lg text-center" placeholder="Add new task" ng-model="todoForm.text">-->
+                        
+<!--                    </div>-->
+                    
+<!--                    <div class="col-md-4">-->
+<!--                            <select class="form-control input-lg" ng-model="todoForm.priority">-->
+<!--                                <option selected value="Low">Low</option>-->
+<!--                                <option value="High">High</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+                    
+<!--                    </div>-->
+                    <!-- createToDo() WILL CREATE NEW TODOS -->
+<!--                    <button type="submit" class="btn btn-primary btn-lg">Add</button>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <!-- TODO LIST -->
+<!--        <div id="todo-list" class="row">-->
+<!--            <div id="newID" class="col-sm-4 col-sm-offset-4">-->
+
+                <!-- LOOP OVER THE TODOS -->
+<!--                <div class="checkbox" ng-repeat="todo in todos | orderBy:'date':true">-->
+                    
+<!--                    <div class="media-left">-->
+<!--                    <label>-->
+<!--                        <input type="checkbox" ng-click="">-->
+<!--                        <span class='badge'>{{todo.priority}}</span> -->
+<!--                        <span class="label label-primary">{{todo.status}}</span>-->
+<!--                    </label>-->
+<!--                    </div>-->
+                    
+<!--                    <div class="media-body">-->
+<!--                        <div class="col-md-6">-->
+<!--                            <h4 class="media-heading">{{todo.date}}</h4>-->
+<!--                        </div>-->
+<!--                        <div class="col-md-6">-->
+<!--                            <button type="submit" class="btn btn-danger btn-sm " ng-click="deleteTodo(todo.id)">Delete</button>-->
+<!--                        </div>-->
+<!--                        <p>-->
+<!--                        <form class="form" ng-submit="updateTodo(updateFormText, todo.id)">-->
+<!--                            <div class="form-group">-->
+<!--                                <p>{{todo.description}}</p>-->
+<!--                                <input type="text" class="form-control input-lg text-center" placeholder="Write update here" ng-model="updateFormText">-->
+<!--                            </div>-->
+<!--                                <button type="submit" class="btn btn-info btn-sm">Update</button>-->
+<!--                        </form>-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+                
+<!--            </div>-->
+<!--        </div>-->
+<!--</div>-->
+
+<style>
+.checkbox {
+    background-color: #e0ebeb;
+    border-style: groove;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- HEADER AND TODO COUNT -->
+        <div class="jumbotron text-center">
+            <h1>{{user.firstname}}'s To Do List <span class="label label-info">{{ todos.length }}</span></h1>
+        </div>
+        
+        <!-- FORM TO CREATE TODOS -->
+        <div id="todo-form" class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <form class="form" ng-submit="createTodo()">
+                    <div class="form-group">
+                    <div class="col-md-6">
+                        <!-- BIND THIS VALUE TO todoForm.text IN ANGULAR -->
+                        <input type="text" class="form-control text-center" placeholder="Add New Task" ng-model="todoForm.text" required>
+                    </div>
+                    <div class="col-md-4">
+                        <select class="form-control" ng-model="todoForm.priority" required>
+                            <option value="" disabled selected>Priority Level</option>
+                            <option value="Low">Low</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+                    <!-- createToDo() WILL CREATE NEW TODOS -->
+                    <button type="submit" class="btn btn-primary">Add</button>   
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- TODO LIST -->
+        <div id="todo-list" class="row">
+            <div id="newID" class="col-sm-6 col-sm-offset-3">
+                <!-- LOOP OVER THE TODOS -->
+                <div class="checkbox" ng-repeat="todo in todos | orderBy:'date':false">
+                    
+                    <div>
+                    <p>
+                        <span class="badge">{{todo.priority}}</span> 
+                        <span class="label label-primary">{{todo.status}}</span>
+                    </p>
+                    </div>
+                    
+                    <div>
+                        <div class="col-md-10">
+                            <h3 class="media-heading"><b>{{todo.date}}</b></h3>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-danger btn-sm" ng-click="deleteTodo(todo.id)">Delete</button>
+                        </div>
+                        <p>
+                        <form class="form" ng-submit="updateTodo(updateFormText, todo.id)">
+                            <div class="form-group">
+                                <p>{{todo.description}}</p>
+                                <input type="text" class="form-control text-center" placeholder="Write update here" ng-model="updateFormText">
+                            </div>
+                                <button type="submit" class="btn btn-info btn-sm">Update</button>
+                        </form>
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                    
+

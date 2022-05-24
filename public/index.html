@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+  NOTE BY/FOR MARK: When running site, use 'Preview Running Application' NOT 'Live Preview HTML Page'
+  Using the latter will cause login to fail 
+  (DO NOT REMOVE b/c this is the reason why I keep not being able to login)
+-->
+<html ng-app="lab10app">
+<head lang="en">
+  <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Assignment 2</title>
+
+  <!-- styles --> 
+  <link rel="stylesheet" href="./libs/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <script src="./libs/jquery/dist/jquery.min.js"></script>
+  <script src="./libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./libs/angular/angular.js"></script>
+  <script src="./libs/angular-route/angular-route.js"></script>
+  <script src="./js/appRoutes.js"></script>
+  <script src="./js/controllers/controllers.js"></script>
+  <script src="./js/services/services.js"></script>
+</head>
+
+<body>
+  <div class="container">
+
+<!--OLD CODE; NEW CODE BELOW-->
+    <!--<h1>Assignment 2</h1>-->
+   
+    <!--<nav class="navbar navbar-light bg-faded" ng-controller="logoutController">-->
+    <!--  <ul class="nav navbar-nav">-->
+    <!--    <li ng-show="user.username" class="nav-item">-->
+    <!--      <a class="nav-link" href="/#/books">Books <span class="sr-only">(current)</span></a>-->
+    <!--    </li>-->
+    <!--    <li ng-show="user.username" class="nav-item">-->
+    <!--      <a class="nav-link" href="/#/todo">Todo</a>-->
+    <!--    </li>-->
+    <!--    <li ng-show="user.username" class="nav-item">-->
+    <!--      <a class="nav-link" href="/#/messages">Messages</a>-->
+    <!--    </li>-->
+    <!--    <li ng-show="user.username" class="nav-item">-->
+    <!--      <a class="nav-link" href="/#/about">About</a>-->
+    <!--    </li>-->
+    <!--    <li ng-show="user.username" class="nav-item">-->
+    <!--        <a class="nav-link" href="" ng-click="logout()">Logout</a>-->
+    <!--    </li>-->
+    <!--    <li ng-hide="user.username" class="nav-item active">-->
+    <!--      <a class="nav-link" href="/#/login">Login</a>-->
+    <!--    </li>-->
+    <!--    <li ng-show="user.username" class="nav-item">-->
+    <!--        <a class="nav-link"><b>Logged in as:</b> {{user.username}}</a>-->
+    <!--    </li>-->
+    <!--  </ul>-->
+    <!--</nav>-->
+    
+<!--NEW CODE-->
+    <nav class="navbar navbar-inverse">
+      <h2 class="navbar-text">MMT Assignment 2</h2>
+      <p ng-show="user.username" class="navbar-text pull-right">Logged in as <b>{{user.firstname}} {{user.lastname}}</b></p>
+    </nav>
+    
+    <nav class="navbar navbar-default" ng-controller="logoutController">
+      <ul class="nav navbar-nav">
+        <li ng-show="user.username" class="nav-item">
+          <a class="nav-link" href="/#/books">Books <span class="sr-only">(current)</span></a>
+        </li>
+        <li ng-show="user.username" class="nav-item">
+          <a class="nav-link" href="/#/todo">To Do</a>
+        </li>
+        <li ng-show="user.username" class="nav-item">
+          <a class="nav-link" href="/#/messages">Messages</a>
+        </li>
+        <li ng-show="user.username" class="nav-item">
+          <a class="nav-link" href="/#/about">About</a>
+        </li>
+        <li ng-show="user.username" class="nav-item">
+            <a class="nav-link" href="" ng-click="logout()">Logout</a>
+        </li>
+        <li ng-hide="user.username" class="nav-item">
+          <a class="nav-link" href="/#/login">Login</a>
+        </li>
+      </ul>
+    </nav>
+    
+    <div ng-view></div>
+    
+  </div>
+</body>
+
+</html>

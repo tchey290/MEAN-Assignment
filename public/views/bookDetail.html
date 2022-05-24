@@ -1,0 +1,24 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{ book.title }}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <img ng-src="images/small/{{book.isbn10}}.jpg">
+            </div>
+            <div class="col-md-7">
+                <p>ISBN10: <strong>{{ book.isbn10 }}</strong></p>
+                <p>ISBN13: <strong>{{ book.isbn13 }}</strong></p>
+                <p>Publisher: <strong>{{ book.publisher }}</strong></p>
+                <p>Status: <strong>{{ book.production.status }}</strong></p>
+                <p>Binding: <strong>{{ book.production.binding }}</strong></p>
+                <p>Size: <strong>{{ book.production.size }}</strong></p>
+                <p>Pages: <strong>{{ book.production.pages }}</strong></p>
+                <p>In Stock: <strong>{{ book.production.instock }}</strong></p>
+                <p>Category: <strong>{{ book.category.main }}, {{ book.category.secondary }}</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="#/books">Return to List</a>

@@ -1,0 +1,28 @@
+<div class="container-fluid"> 
+    <div class="row"> 
+        <div class="panel panel-primary"> 
+            <!--<div class="panel-body"> -->
+            
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Cover</th>
+                        <th><a href="" ng-click="sortField='isbn10'; sortReverse = !sortReverse">ISBN<span ng-show="sortField=='isbn10'" class="fa" ng-class="sortReverse ? 'fa-caret-up' : 'fa-caret-down'"></span></a></th>
+                        <th><a href="" ng-click="sortField='title'; sortReverse = !sortReverse">Title<span ng-show="sortField=='title'" class="fa" ng-class="sortReverse ? 'fa-caret-up' : 'fa-caret-down'"></span></a></th>
+                        <th><a href="" ng-click="sortField='category.main'; sortReverse = !sortReverse">Category<span ng-show="sortField=='category.main'" class="fa" ng-class="sortReverse ? 'fa-caret-up' : 'fa-caret-down'"></span></a></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="b in user.books | orderBy:sortField:sortReverse">
+                        <td><img ng-src="images/tinysquare/{{b.isbn10}}.jpg"></td>
+                        <td>{{ b.isbn10 }}</td>
+                        <td><a href="#/books/{{b.isbn10}}">{{b.title}}</a></td>
+                        <td>{{b.category.main}}</td>
+                    </tr>
+                    </body>
+                </table>
+                   
+            <!--</div> -->
+        </div> 
+    </div>
+</div>
